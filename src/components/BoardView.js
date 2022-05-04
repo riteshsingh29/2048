@@ -9,17 +9,17 @@ const BoardView = () => {
     return (
       <div>
         {row.map((col, colIndex) => {
-          return <Cell />;
+          return <Cell key={colIndex} />;
         })}
         ;
       </div>
     );
   });
-  const tiles = board.tiles.filter(
-    ((tile) => tile.value !== 0).map((tile, index) => {
-      return <Tile />;
-    })
-  );
+  const tiles = board.tiles
+    .filter((tile) => tile.value !== 0)
+    .map((tile, index) => {
+      return <Tile key={index} />;
+    });
 
   return (
     <div>
